@@ -67,15 +67,14 @@ function reconstructPath(endNode) {
   return path;
 }
 
-function knightMoves(startPos = [0, 0], endPos = [1, 2]) {
-  if (
-    startPos[0] < 0 ||
-    startPos[0] > 7 ||
-    startPos[1] < 0 ||
-    startPos[1] > 7
-  ) {
+function isValidPos(pos) {
+  return pos[0] < 0 || pos[0] > 7 || pos[1] < 0 || pos[1] > 7;
+}
+
+function knightMoves(startPos, endPos) {
+  if (isValidPos(startPos)) {
     throw new Error('Start position is invalid! format: [int(0-7),int(0-7)]');
-  } else if (endPos[0] < 0 || endPos[0] > 7 || endPos[1] < 0 || endPos[1] > 7) {
+  } else if (isValidPos(endPos)) {
     throw new Error('End position is invalid!! format: [int(0-7),int(0-7)]');
   }
 
